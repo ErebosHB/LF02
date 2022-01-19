@@ -7,8 +7,13 @@ public class Spieler {
     private int motivation;
     private int tore;
 
-    public Spieler(String name){
+    public Spieler(String name,int alter,int staerke, int torschuss, int motivation, int tore){
         this.name = name;
+        this.alter = alter;
+        this.staerke = staerke;
+        this.torschuss = torschuss;
+        this.motivation = motivation;
+        this.tore = tore;
     }
 
     public String getName() {

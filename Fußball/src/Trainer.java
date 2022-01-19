@@ -4,8 +4,10 @@ public class Trainer {
     private int alter;
     private double erfahrung;
 
-    public Trainer(String name){
+    public Trainer(String name, int alter, double erfahrung){
         this.name = name;
+        this.alter = alter;
+        this.erfahrung = erfahrung;
     }
 
     public String getName() {
