@@ -39,6 +39,16 @@ public abstract class Obst {
         this.reife = reife;
     }
 
+    @Override
+    public String toString() {
+        String text = "\tName\t = "+name;
+        text += "\n\tFarbe\t = " + farbe;
+        text += "\n\tGewicht\t = " + gewicht;
+        text += "\n\tReif\t = " + reife;
+
+        return text;
+    }
+
 
 }
 

@@ -14,4 +14,11 @@ public class Banane extends Obst {
         this.kruemmung = kruemmung;
     }
 
+    @Override
+    public String toString(){
+        String text = super.toString();
+        text += "\n\tKrümmung = "+kruemmung;
+        return text;
+    }
+
 }
