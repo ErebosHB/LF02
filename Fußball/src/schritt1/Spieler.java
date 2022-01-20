@@ -1,38 +1,24 @@
 package schritt1;
 
-public class Spieler {
+import schritt3.Person;
 
-    private String name;
-    private int alter;
+public class Spieler extends Person {
+
+
     private int staerke;
     private int torschuss;
     private int motivation;
     private int tore;
 
     public Spieler(String name,int alter,int staerke, int torschuss, int motivation, int tore){
-        this.name = name;
-        this.alter = alter;
+        super(name,alter);
         this.staerke = staerke;
         this.torschuss = torschuss;
         this.motivation = motivation;
         this.tore = tore;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAlter() {
-        return alter;
-    }
-
-    public void setAlter(int alter) {
-        this.alter = alter;
-    }
 
     public int getStaerke() {
         return staerke;
@@ -70,8 +56,8 @@ public class Spieler {
 
     @Override
     public String toString(){
-        String text = "\tName\t\t= "+name;
-        text += "\n\tAlter\t\t= "+alter;
+        String text = "\tName\t\t= "+getName();
+        text += "\n\tAlter\t\t= "+getAlter();
         text += "\n\tStärke\t\t= "+staerke;
         text += "\n\tTorschuss\t= "+torschuss;
         text += "\n\tMotivation\t= "+motivation;
