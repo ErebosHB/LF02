@@ -26,6 +26,7 @@ public class Ergebnis {
         return punkteg;
     }
 
+
     @Override
     public String toString() {
         return super.toString()+"Endergebnis"+"\n"+"Heim : "+punkteh+"\n"+"Gast : "+punkteg;
