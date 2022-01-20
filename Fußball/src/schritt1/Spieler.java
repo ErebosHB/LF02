@@ -1,3 +1,5 @@
+package schritt1;
+
 public class Spieler {
 
     private String name;
@@ -20,45 +22,51 @@ public class Spieler {
         return name;
     }
 
-    public void setAlter(int alter) {
-        this.alter = alter;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAlter() {
         return alter;
     }
 
-    public void setStaerke(int staerke) {
-        this.staerke = staerke;
+    public void setAlter(int alter) {
+        this.alter = alter;
     }
 
     public int getStaerke() {
         return staerke;
     }
 
-    public void setTorschuss(int torschuss) {
-        this.torschuss = torschuss;
+    public void setStaerke(int staerke) {
+        this.staerke = staerke;
     }
 
     public int getTorschuss() {
         return torschuss;
     }
 
-    public void setMotivation(int motivation) {
-        this.motivation = motivation;
+    public void setTorschuss(int torschuss) {
+        this.torschuss = torschuss;
     }
 
     public int getMotivation() {
         return motivation;
     }
 
-    public void setTore(int tore) {
-        this.tore = tore;
+    public void setMotivation(int motivation) {
+        this.motivation = motivation;
     }
 
     public int getTore() {
         return tore;
     }
+
+    public void setTore(int tore) {
+        this.tore = tore;
+    }
+
+
 
     @Override
     public String toString(){

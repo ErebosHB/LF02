@@ -1,3 +1,5 @@
+package schritt1;
+
 public class Programm {
     public static void main(String[] args) {
         Trainer trainer = new Trainer("Hans",50,9);

@@ -1,3 +1,5 @@
+package schritt1;
+
 public class Trainer {
 
     private String name;
@@ -14,21 +16,27 @@ public class Trainer {
         return name;
     }
 
-    public void setAlter(int alter) {
-        this.alter = alter;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAlter() {
         return alter;
     }
 
-    public void setErfahrung(double erfahrung) {
-        this.erfahrung = erfahrung;
+    public void setAlter(int alter) {
+        this.alter = alter;
     }
 
     public double getErfahrung() {
         return erfahrung;
     }
+
+    public void setErfahrung(double erfahrung) {
+        this.erfahrung = erfahrung;
+    }
+
+
 
     @Override
     public String toString(){
