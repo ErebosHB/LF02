@@ -7,19 +7,20 @@ import schritt2.Torwart;
 import java.util.ArrayList;
 
 public class Mannschaft {
-     String name;
-     Trainer trainer;
-     Torwart torwart;
-     int motivation;
+    String name;
+    Trainer trainer;
+    Torwart torwart;
+    int motivation;
     int motivationsdurchschnitt;
     ArrayList<Spieler>spielerListe;
     int staerke;
     int staerkedurchschnitt;
 
-    public Mannschaft(String name,Trainer trainer,Torwart torwart){
+    public Mannschaft(String name, Trainer trainer, Torwart torwart, ArrayList spielerListe) {
         this.name = name;
         this.trainer = trainer;
         this.torwart = torwart;
+        this.spielerListe = spielerListe;
     }
 
 
@@ -55,31 +56,33 @@ public class Mannschaft {
         this.spielerListe = spielerListe;
     }
 
-    public int getMotivation(){
+    public int getMotivation() {
 
-        for (Spieler i:spielerListe
-             ) {
-             motivation += i.getMotivation();
+        for (Spieler i : spielerListe
+        ) {
+            motivation += i.getMotivation();
         }
         motivation += torwart.getMotivation();
-        motivationsdurchschnitt = motivation/(spielerListe.size()+1);
-        return motivation;
+        motivationsdurchschnitt = motivation / (spielerListe.size() + 1);
+        return motivationsdurchschnitt;
     }
 
-    public int getStaerke(){
+    public int getStaerke() {
 
-        for (Spieler i:spielerListe
-             ) {
+        for (Spieler i : spielerListe
+        ) {
             staerke += i.getStaerke();
         }
         staerke += torwart.getStaerke();
-        staerkedurchschnitt = staerke/(spielerListe.size()+1);
-        return staerke;
-
+        staerkedurchschnitt = staerke / (spielerListe.size() + 1);
+        return staerkedurchschnitt;
 
 
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString()+"Motivationsdurchschnitt = "+getMotivation()+"\n"+ "Stärkedurchschnitt = " + getStaerke() ;
+    }
 }
 
