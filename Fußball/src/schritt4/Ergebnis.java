@@ -3,8 +3,7 @@ package schritt4;
 public class Ergebnis {
     private int trefferheim;
     private int treffergast;
-    int punkteh;
-    int punkteg;
+
 
     public int getTreffergast() {
         return treffergast;
@@ -14,21 +13,17 @@ public class Ergebnis {
         return trefferheim;
     }
 
-    public int TrefferHeim(){
-        trefferheim += 1;
-        punkteh += trefferheim;
-        return punkteh;
+    public void setTrefferHeim(){
+        trefferheim++;
     }
 
-    public int TrefferGast(){
-        treffergast += 1;
-        punkteg += treffergast;
-        return punkteg;
+    public void setTrefferGast(){
+        treffergast++;
     }
 
 
     @Override
     public String toString() {
-        return super.toString()+"Endergebnis"+"\n"+"Heim : "+punkteh+"\n"+"Gast : "+punkteg;
+        return "Endergebnis"+"\n"+"Heim : "+getTrefferheim()+"\n"+"Gast : "+getTreffergast();
     }
 }
