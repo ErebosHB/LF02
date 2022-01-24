@@ -31,6 +31,6 @@ public class Spiel {
 
     @Override
     public String toString() {
-        return "Spielverlauf = "+getSpielverlauf();
+        return "Endergebnis: "+getErgebnis()+"\nSpielverlauf = "+getSpielverlauf();
     }
 }

@@ -82,11 +82,11 @@ public class Mannschaft {
 
     @Override
     public String toString() {
-        String text = "\nName = "+name;
-        text +="\nTrainer = "+trainer;
+        String text = "\nName = "+name+"\n";
+        text +="\nTrainer =\n "+trainer;
         text +="\nTorwart = "+torwart;
         text +="\nSpieler = "+getSpielerListe();
-        text +="\nMotivationsdurchschnitt\t= "+getMotivation();
+        text +="\n\nMotivationsdurchschnitt\t= "+getMotivation();
         text +="\nStärkedurchschnitt\t\t= " + getStaerke() ;
         return text;
     }

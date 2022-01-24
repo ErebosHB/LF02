@@ -48,7 +48,6 @@ public class Programm {
         System.out.println("=====================================================");
         System.out.println(mannschaft2);
         System.out.println("=====================================================");
-        System.out.println(ergebnis);
         System.out.println(spiel);
     }
 }

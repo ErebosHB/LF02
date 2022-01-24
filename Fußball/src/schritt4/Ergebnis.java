@@ -13,17 +13,19 @@ public class Ergebnis {
         return trefferheim;
     }
 
-    public void setTrefferHeim(){
+    public void setTrefferHeim() {
         trefferheim++;
     }
 
-    public void setTrefferGast(){
+    public void setTrefferGast() {
         treffergast++;
     }
+
     @Override
     public String toString() {
-        return "Endergebnis"+"\n"+"Heim : "+getTrefferheim()+"\n"+"Gast : "+getTreffergast();
+
+        String text = "\nHeim: " + getTrefferheim();
+        text += "\nGast: " + getTreffergast();
+        return text;
     }
-
-
 }
