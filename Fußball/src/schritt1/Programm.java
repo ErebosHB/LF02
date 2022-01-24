@@ -3,6 +3,7 @@ package schritt1;
 import schritt2.Torwart;
 import schritt4.Ergebnis;
 import schritt4.Mannschaft;
+import schritt4.Spiel;
 
 import java.util.ArrayList;
 
@@ -35,14 +36,16 @@ public class Programm {
         Mannschaft mannschaft2 = new Mannschaft("Gast", trainer2, torwart2, spielerlistegast);
 
         Ergebnis ergebnis = new Ergebnis();
-
         ergebnis.setTrefferGast();
+
+        Spiel spiel = new Spiel(mannschaft1,mannschaft2,ergebnis);
+
+
 
 
         System.out.println(trainer1);
         System.out.println();
         System.out.println(spielerlisteheim);
-        System.out.println();
         System.out.println(torwart1);
         System.out.println();
         System.out.println(mannschaft1);
@@ -50,7 +53,6 @@ public class Programm {
         System.out.println(trainer2);
         System.out.println();
         System.out.println(spielerlistegast);
-        System.out.println();
         System.out.println(torwart2);
         System.out.println();
         System.out.println(mannschaft2);

@@ -20,10 +20,10 @@ public class Ergebnis {
     public void setTrefferGast(){
         treffergast++;
     }
-
-
     @Override
     public String toString() {
         return "Endergebnis"+"\n"+"Heim : "+getTrefferheim()+"\n"+"Gast : "+getTreffergast();
     }
+
+
 }
