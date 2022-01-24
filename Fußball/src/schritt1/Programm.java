@@ -20,7 +20,7 @@ public class Programm {
         spielerlisteheim.add(spieler2);
         spielerlisteheim.add(spieler3);
 
-        Mannschaft mannschaft1 = new Mannschaft("Heim", trainer1, torwart1, spielerlisteheim);
+        Mannschaft mannschaft1 = new Mannschaft("Fc Barcelona", trainer1, torwart1, spielerlisteheim);
 
         Trainer trainer2 = new Trainer("Ancelotti", 63, 9);
         Spieler spieler4 = new Spieler("Kroos", 33, 8, 6, 7, 30);
@@ -33,7 +33,7 @@ public class Programm {
         spielerlistegast.add(spieler5);
         spielerlistegast.add(spieler6);
 
-        Mannschaft mannschaft2 = new Mannschaft("Gast", trainer2, torwart2, spielerlistegast);
+        Mannschaft mannschaft2 = new Mannschaft("Real Madrid", trainer2, torwart2, spielerlistegast);
 
         Ergebnis ergebnis = new Ergebnis();
         ergebnis.setTrefferGast();
@@ -43,18 +43,9 @@ public class Programm {
 
 
 
-        System.out.println(trainer1);
-        System.out.println();
-        System.out.println(spielerlisteheim);
-        System.out.println(torwart1);
-        System.out.println();
+
         System.out.println(mannschaft1);
         System.out.println("=====================================================");
-        System.out.println(trainer2);
-        System.out.println();
-        System.out.println(spielerlistegast);
-        System.out.println(torwart2);
-        System.out.println();
         System.out.println(mannschaft2);
         System.out.println("=====================================================");
         System.out.println(ergebnis);
