@@ -49,14 +49,15 @@ public class Programm {
         System.out.println(torwart1);
         System.out.println();
         System.out.println(mannschaft1);
-        System.out.println();
+        System.out.println("=====================================================");
         System.out.println(trainer2);
         System.out.println();
         System.out.println(spielerlistegast);
         System.out.println(torwart2);
         System.out.println();
         System.out.println(mannschaft2);
-        System.out.println();
+        System.out.println("=====================================================");
         System.out.println(ergebnis);
+        System.out.println(spiel);
     }
 }
