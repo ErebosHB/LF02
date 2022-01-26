@@ -14,7 +14,7 @@ public class Trainer extends Person {
 
 
 
-    public double getErfahrung() {
+    public int getErfahrung() {
         return erfahrung;
     }
 
