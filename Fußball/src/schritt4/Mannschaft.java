@@ -86,8 +86,8 @@ public class Mannschaft {
         text +="\nTrainer =\n "+trainer;
         text +="\nTorwart = "+torwart;
         text +="\nSpieler = "+getSpielerListe();
-        text +="\n\nMotivationsdurchschnitt\t= "+getMotivation();
-        text +="\nStärkedurchschnitt\t\t= " + getStaerke() ;
+        text +="\n\nMotivationsdurchschnitt\t= "+ motivationsdurchschnitt;
+        text +="\nStärkedurchschnitt\t\t= " + staerkedurchschnitt ;
         return text;
     }
 }
