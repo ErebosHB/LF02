@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public class Programm {
     public static void main(String[] args) {
         Trainer trainer1 = new Trainer("Xavi", 43, 7);
-        Spieler spieler1 = new Spieler("Messi", 34, 6, 10, 7, 678);
-        Spieler spieler2 = new Spieler("De Jong", 24, 7, 4, 7, 10);
-        Spieler spieler3 = new Spieler("Dest", 21, 5, 3, 4, 3);
-        Torwart torwart1 = new Torwart("Ter Stegen", 29, 7, 7, 7);
+        Spieler spieler1 = new Spieler("Messi", 34, 6, 1, 7, 678);
+        Spieler spieler2 = new Spieler("De Jong", 24, 7, 1, 7, 10);
+        Spieler spieler3 = new Spieler("Dest", 21, 5, 1, 4, 3);
+        Torwart torwart1 = new Torwart("Ter Stegen", 29, 7, 7, 1);
 
         ArrayList<Spieler> spielerlisteheim = new ArrayList<>();
         spielerlisteheim.add(spieler1);
@@ -24,7 +24,7 @@ public class Programm {
         Mannschaft mannschaft1 = new Mannschaft("Fc Barcelona", trainer1, torwart1, spielerlisteheim);
 
         Trainer trainer2 = new Trainer("Ancelotti", 63, 9);
-        Spieler spieler4 = new Spieler("Kroos", 33, 8, 10, 7, 30);
+        Spieler spieler4 = new Spieler("Kroos", 33, 6, 10, 7, 30);
         Spieler spieler5 = new Spieler("Mendy", 24, 6, 10, 6, 2);
         Spieler spieler6 = new Spieler("Mariano", 26, 4, 10, 3, 15);
         Torwart torwart2 = new Torwart("Courtois", 30, 7, 10, 7);
