@@ -70,11 +70,15 @@ public class Gameplay {
                     Random random = new Random();
                     int index = random.nextInt(arrayListGast.size());
                     Spieler schuetze = arrayListGast.get(index);
+
                     Torwart torwart = heim.getTorwart();
                     boolean erzieltTor = erzieltTor(schuetze, torwart);
+                    System.out.println("Torschuss für Gast");
                     if (erzieltTor) {
                         Ergebnis ergebnis = spiel.getErgebnis();
                         ergebnis.setTrefferGast();
+                        schuetze.setTore(+1);
+                        System.out.println("\nTor für Gast");
                     }
 
                 } else {
@@ -84,9 +88,12 @@ public class Gameplay {
                     Spieler schuetze = arrayListHeim.get(index1);
                     Torwart torwart = gast.getTorwart();
                     boolean erzieltTor = erzieltTor(schuetze, torwart);
+                    System.out.println("\nTorschuss für Heim");
                     if (erzieltTor) {
                         Ergebnis ergebnis = spiel.getErgebnis();
                         ergebnis.setTrefferHeim();
+                        schuetze.setTore(+1);
+                        System.out.println("\nTor für Heim");
                     }
                 }
                 naechsteAktionZufall = ran.nextInt(pause);
