@@ -73,12 +73,15 @@ public class Gameplay {
 
                     Torwart torwart = heim.getTorwart();
                     boolean erzieltTor = erzieltTor(schuetze, torwart);
-                    System.out.println("Torschuss für Gast");
+                    System.out.println("\nTorschuss für Gast");
                     if (erzieltTor) {
                         Ergebnis ergebnis = spiel.getErgebnis();
                         ergebnis.setTrefferGast();
                         schuetze.setTore(+1);
-                        System.out.println("\nTor für Gast");
+                        System.out.println("Tor für Gast!");
+                    }
+                    else {
+                        System.out.println("Schuss parriert!");
                     }
 
                 } else {
@@ -93,7 +96,10 @@ public class Gameplay {
                         Ergebnis ergebnis = spiel.getErgebnis();
                         ergebnis.setTrefferHeim();
                         schuetze.setTore(+1);
-                        System.out.println("\nTor für Heim");
+                        System.out.println("Tor für Heim!");
+                    }
+                    else {
+                        System.out.println("Schuss parriert!");
                     }
                 }
                 naechsteAktionZufall = ran.nextInt(pause);
