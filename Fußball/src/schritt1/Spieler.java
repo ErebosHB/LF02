@@ -48,9 +48,9 @@ public class Spieler extends Person {
         return tore;
     }
 
-    public void setTore(int tore) {
+    public void setTore() {
+        tore++;
 
-        this.tore = tore;
     }
 
 
