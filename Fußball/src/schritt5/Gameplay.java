@@ -16,11 +16,8 @@ public class Gameplay {
     private static final int pause = 10;
 
     private static int ermittelMannschaftsWert(Mannschaft mannschaft) {
-        Trainer trainer = mannschaft.getTrainer();
-        int mannschaftsWert = mannschaft.getMotivation() * mannschaft.getStaerke() * trainer.getErfahrung();
-        if (mannschaftsWert == 0) {
-            mannschaftsWert = 1;
-        }
+        int mannschaftsWert = mannschaft.getMotivation() * mannschaft.getStaerke() * mannschaft.getTrainer().getErfahrung();
+        Math.max(mannschaftsWert,1);
         return mannschaftsWert;
     }
 
@@ -29,17 +26,10 @@ public class Gameplay {
         Random r = new Random();
         int wert1 = r.nextInt(5) - 2;
         int wert2 = r.nextInt(5) - 2;
-
-
         int torschuss = schuetze.getTorschuss() + wert1;
-        if (torschuss <= 0) {
-            torschuss = 1;
-
-        }
+        Math.max(torschuss,1);
         int reaktion = torwart.getReaktion() + wert2;
-        if (reaktion <= 0) {
-            reaktion = 1;
-        }
+        Math.max(reaktion,1);
         erzielttor = torschuss > reaktion;
         return erzielttor;
     }
@@ -53,22 +43,18 @@ public class Gameplay {
         int mannschaftsWertHeim = ermittelMannschaftsWert(heim);
         Mannschaft gast = spiel.getGast();
         int mannschaftsWertGast = ermittelMannschaftsWert(gast);
-        int j = 0;
+        int j = naechsteAktionZufall;
         do {
             int summewert = mannschaftsWertHeim + mannschaftsWertGast;
-            Random ra = new Random();
-            int zahl3 = ra.nextInt(summewert);
-            if (zahl3 > mannschaftsWertHeim) {
+            int abgleich = r.nextInt(summewert);
+            if (abgleich > mannschaftsWertHeim) {
                 System.out.println("\nTorschuss für " + gast.getName() + ": " + (j) + "min");
-                ArrayList<Spieler> arrayListGast = gast.getSpielerListe();
-                Random random = new Random();
-                int index = random.nextInt(arrayListGast.size());
-                Spieler schuetze = arrayListGast.get(index);
+                int index = r.nextInt(spiel.getGast().getSpielerListe().size());
+                Spieler schuetze = spiel.getGast().getSpielerListe().get(index);
                 Torwart torwart = heim.getTorwart();
                 boolean erzieltTor = erzieltTor(schuetze, torwart);
                 if (erzieltTor) {
-                    Ergebnis ergebnis = spiel.getErgebnis();
-                    ergebnis.setTrefferGast();
+                    spiel.getErgebnis().setTrefferGast();
                     schuetze.setTore();
                     System.out.println("Tor von " + schuetze.getName() + " für " + gast.getName() + "!");
                 } else {
@@ -76,21 +62,17 @@ public class Gameplay {
                 }
             } else {
                 System.out.println("\nTorschuss für " + heim.getName() + ": " + (j) + "min");
-                ArrayList<Spieler> arrayListHeim = heim.getSpielerListe();
-                Random random1 = new Random();
-                int index1 = random1.nextInt(arrayListHeim.size());
-                Spieler schuetze = arrayListHeim.get(index1);
+                int index1 = r.nextInt(spiel.getHeim().getSpielerListe().size());
+                Spieler schuetze = spiel.getHeim().getSpielerListe().get(index1);
                 Torwart torwart = gast.getTorwart();
                 boolean erzieltTor = erzieltTor(schuetze, torwart);
                 if (erzieltTor) {
-                    Ergebnis ergebnis = spiel.getErgebnis();
-                    ergebnis.setTrefferHeim();
+                    spiel.getErgebnis().setTrefferHeim();
                     schuetze.setTore();
                     System.out.println("Tor " + schuetze.getName() + " für " + heim.getName() + "!");
                 } else {
                     System.out.println("Schuss parriert! ");
                 }
-
             }
             j += naechsteAktionZufall;
             naechsteAktionZufall = r.nextInt(pause);
