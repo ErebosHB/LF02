@@ -23,7 +23,8 @@ public class Ergebnis {
 
     @Override
     public String toString() {
-        return "\nHeim: " + getTrefferheim()+
-        "\nGast: " + getTreffergast();
+        return"Ergebnis:"+
+                "\nHeim: " + getTrefferheim()+
+                "\nGast: " + getTreffergast();
             }
 }

@@ -71,6 +71,8 @@ public class Gameplay {
             }
             naechsteAktionZufall = naechsteAktionZufall + r.nextInt(MAX_DAUER_BIS_AKTION + 1);
         } while (naechsteAktionZufall <= spieldauer);
+        spiel.getSpielverlauf().append(spiel.getErgebnis());
+
     }
 }
 

@@ -32,8 +32,7 @@ public class Spiel {
 
     @Override
     public String toString() {
-        return "\nEndergebnis: "+getErgebnis()+
-        "\nSpielverlauf:\n" +getSpielverlauf();
+        return "\nSpielverlauf:\n" +getSpielverlauf();
 
     }
 }
