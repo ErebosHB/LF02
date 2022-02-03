@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Gameplay {
-    private static final int spielzeit = 90;
-    private static final int nachspielzeit = 5;
-    private static final int pause = 10;
+    private static final int SPIELZEIT = 90;
+    private static final int MAX_NACHSPIELZEIT = 5;
+    private static final int MAX_DAUER_BIS_AKTION = 10;
 
     private static int ermittelMannschaftsWert(Mannschaft mannschaft) {
         int mannschaftsWert = mannschaft.getMotivation() * mannschaft.getStaerke() * mannschaft.getTrainer().getErfahrung();
@@ -36,9 +36,9 @@ public class Gameplay {
 
     public static void spielen(Spiel spiel) {
         Random r = new Random();
-        int zahl = r.nextInt(nachspielzeit + 1);
-        int spieldauer = spielzeit + zahl;
-        int naechsteAktionZufall = r.nextInt(pause);
+        int zahl = r.nextInt(MAX_NACHSPIELZEIT + 1);
+        int spieldauer = SPIELZEIT + zahl;
+        int naechsteAktionZufall = r.nextInt(MAX_DAUER_BIS_AKTION);
         Mannschaft heim = spiel.getHeim();
         int mannschaftsWertHeim = ermittelMannschaftsWert(heim);
         Mannschaft gast = spiel.getGast();
@@ -75,7 +75,7 @@ public class Gameplay {
                 }
             }
             j += naechsteAktionZufall;
-            naechsteAktionZufall = r.nextInt(pause);
+            naechsteAktionZufall = r.nextInt(MAX_DAUER_BIS_AKTION);
             j++;
         } while (j + naechsteAktionZufall <= spieldauer);
     }
