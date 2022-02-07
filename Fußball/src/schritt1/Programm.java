@@ -40,14 +40,6 @@ public class Programm {
 
         Spiel spiel = new Spiel(mannschaft1, mannschaft2, ergebnis);
 
-
-
-
-        System.out.println(mannschaft1);
-        System.out.println("=====================================================");
-        System.out.println(mannschaft2);
-        System.out.println("=====================================================");
-
         try {
             Gameplay.spielen(spiel);
         } catch (SpielAbbruchException e) {
