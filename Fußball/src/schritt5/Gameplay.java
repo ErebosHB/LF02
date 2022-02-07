@@ -1,5 +1,6 @@
 package schritt5;
 
+import Schritt6.SpielAbbruchException;
 import schritt1.Spieler;
 import schritt1.Trainer;
 import schritt2.Torwart;
@@ -34,15 +35,18 @@ public class Gameplay {
         return erzielttor;
     }
 
-    public static void spielen(Spiel spiel) {
+    public static void spielen(Spiel spiel) throws SpielAbbruchException{
         Random r = new Random();
         int spieldauer = SPIELZEIT + r.nextInt(MAX_NACHSPIELZEIT + 1);
-        int naechsteAktionZufall = 1+ r.nextInt(MAX_DAUER_BIS_AKTION + 1);
+        int naechsteAktionZufall = 1 + r.nextInt(MAX_DAUER_BIS_AKTION + 1);
         int mannschaftsWertHeim = ermittelMannschaftsWert(spiel.getHeim());
         int mannschaftsWertGast = ermittelMannschaftsWert(spiel.getGast());
         Mannschaft offensiv;
         Mannschaft defensiv;
         do {
+            if (brecheSpielAb()) {
+                throw new SpielAbbruchException(naechsteAktionZufall);
+            }
             int summewert = mannschaftsWertHeim + mannschaftsWertGast;
             int abgleich = r.nextInt(summewert);
             if (abgleich <= mannschaftsWertHeim) {
@@ -64,14 +68,26 @@ public class Gameplay {
                 } else {
                     spiel.getErgebnis().setTrefferGast();
                 }
-                spiel.getSpielverlauf().append(naechsteAktionZufall+": Tor von " + schuetze.getName() + " für " + offensiv.getName() + "!\n");
-            }
-            else {
-                spiel.getSpielverlauf().append(naechsteAktionZufall+": Schuss parriert!\n");
+                spiel.getSpielverlauf().append(naechsteAktionZufall + ": Tor von " + schuetze.getName() + " für " + offensiv.getName() + "!\n");
+            } else {
+                spiel.getSpielverlauf().append(naechsteAktionZufall + ": Schuss parriert!\n");
             }
             naechsteAktionZufall = naechsteAktionZufall + r.nextInt(MAX_DAUER_BIS_AKTION + 1);
         } while (naechsteAktionZufall <= spieldauer);
         spiel.getSpielverlauf().append(spiel.getErgebnis());
+
+    }
+
+    public static boolean brecheSpielAb() {
+        boolean abbruch;
+        Random r = new Random();
+        int index = r.nextInt(9);
+        if (index == 0) {
+            abbruch = true;
+        } else {
+            abbruch = false;
+        }
+        return abbruch;
 
     }
 }

@@ -1,5 +1,6 @@
 package schritt1;
 
+import Schritt6.SpielAbbruchException;
 import schritt2.Torwart;
 import schritt4.Ergebnis;
 import schritt4.Mannschaft;
@@ -37,12 +38,7 @@ public class Programm {
         Mannschaft mannschaft2 = new Mannschaft("Real Madrid", trainer2, torwart2, spielerlistegast);
         Ergebnis ergebnis = new Ergebnis();
 
-        Spiel spiel = new Spiel(mannschaft1,mannschaft2,ergebnis);
-
-
-       Gameplay.spielen(spiel);
-
-
+        Spiel spiel = new Spiel(mannschaft1, mannschaft2, ergebnis);
 
 
 
@@ -51,6 +47,12 @@ public class Programm {
         System.out.println("=====================================================");
         System.out.println(mannschaft2);
         System.out.println("=====================================================");
+
+        try {
+            Gameplay.spielen(spiel);
+        } catch (SpielAbbruchException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println(spiel);
     }
 }

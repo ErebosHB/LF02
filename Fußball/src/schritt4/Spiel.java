@@ -33,6 +33,5 @@ public class Spiel {
     @Override
     public String toString() {
         return "\nSpielverlauf:\n" +getSpielverlauf();
-
     }
 }
