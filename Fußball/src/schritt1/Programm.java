@@ -37,7 +37,6 @@ public class Programm {
 
         Mannschaft mannschaft2 = new Mannschaft("Real Madrid", trainer2, torwart2, spielerlistegast);
         Ergebnis ergebnis = new Ergebnis();
-
         Spiel spiel = new Spiel(mannschaft1, mannschaft2, ergebnis);
 
         try {
