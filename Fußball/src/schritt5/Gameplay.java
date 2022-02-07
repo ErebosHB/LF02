@@ -81,7 +81,7 @@ public class Gameplay {
     public static boolean brecheSpielAb() {
         boolean abbruch;
         Random r = new Random();
-        int index = r.nextInt(9);
+        int index = r.nextInt(1000);
         if (index == 0) {
             abbruch = true;
         } else {
