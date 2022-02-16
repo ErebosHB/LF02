@@ -1,21 +1,21 @@
 public class Adresse {
-    private int postleitzahl;
-    private int hausnummer;
+    private String postleitzahl;
+    private String hausnummer;
     private String ort;
     private String strasse;
 
-    public Adresse(String strasse, String ort, int postleitzahl, int hausnummer){
+    public Adresse(String strasse, String ort, String postleitzahl, String hausnummer){
         this.hausnummer = hausnummer;
         this.ort = ort;
         this.postleitzahl = postleitzahl;
         this.strasse = strasse;
     }
 
-    public int getHausnummer() {
+    public String getHausnummer() {
         return hausnummer;
     }
 
-    public int getPostleitzahl() {
+    public String getPostleitzahl() {
         return postleitzahl;
     }
 
@@ -27,7 +27,7 @@ public class Adresse {
         return strasse;
     }
 
-    public void setHausnummer(int hausnummer) {
+    public void setHausnummer(String hausnummer) {
         this.hausnummer = hausnummer;
     }
 
@@ -35,7 +35,7 @@ public class Adresse {
         this.ort = ort;
     }
 
-    public void setPostleitzahl(int postleitzahl) {
+    public void setPostleitzahl(String postleitzahl) {
         this.postleitzahl = postleitzahl;
     }
 
