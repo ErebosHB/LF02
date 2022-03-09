@@ -1,5 +1,5 @@
 public abstract class Gegenstand {
-    private int id;
+    private final int id;
     private double wert;
 
     public Gegenstand(int id, double wert){
