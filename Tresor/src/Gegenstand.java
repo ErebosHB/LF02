@@ -1,13 +1,13 @@
 public abstract class Gegenstand {
-    private String id;
+    private int id;
     private double wert;
 
-    public Gegenstand(String id, double wert){
+    public Gegenstand(int id, double wert){
         this.id = id;
         this.wert = wert;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -21,7 +21,7 @@ public abstract class Gegenstand {
 
     @Override
     public String toString() {
-        return "ID\t\t: "+getId()+"\n"+
+        return "\nID\t\t: "+getId()+"\n"+
                 "Gegenstandswert\t: "+getWert()+"\n";
     }
 }

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Tresor {
     private ArrayList<Gegenstand> gegenstandsliste;
-    private double gesamtwert;
 
-    public Tresor(ArrayList<Gegenstand> gegenstandsliste){
+
+    public Tresor(ArrayList<Gegenstand> gegenstandsliste) {
         this.gegenstandsliste = gegenstandsliste;
     }
 
@@ -15,34 +15,30 @@ public class Tresor {
         return gegenstandsliste;
     }
 
-    public void setGegenstandsliste(ArrayList<Gegenstand> gegenstandsliste) {
-        this.gegenstandsliste = gegenstandsliste;
+    public void addGegenstand(Gegenstand gegenstand) {
+        gegenstandsliste.add(gegenstand);
     }
 
-    public double gesamtwert(ArrayList<Gegenstand> gegenstandsliste){
-        for (Gegenstand i : gegenstandsliste
-             ) {
+    public void removeGegenstand(Gegenstand gegenstand) throws KeineIdException{
+        if (gegenstandsliste.contains(gegenstand.getId())) {
+            gegenstandsliste.remove(gegenstand);
+        }
+        else {
+            throw new KeineIdException(gegenstand.getId());
+        }
+    }
 
-            gesamtwert += i.getWert();
+    public double gesamtwert(ArrayList<Gegenstand> gegenstandsliste) {
+        double gesamtwert = 0;
+        for (Gegenstand j : gegenstandsliste) {
+
+            gesamtwert += j.getWert();
         }
         return gesamtwert;
     }
 
-    public Gegenstand ermittelGegenstand(ArrayList<Gegenstand> gegenstandsliste) throws IOException {
-        System.out.println("Bitte geben Sie die ID ein, die Sie suchen.");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String eingabe = br.readLine();
-        int objekt = 0;
-        for (Gegenstand i : gegenstandsliste
-        ) {
-            if (eingabe == gegenstandsliste.get(objekt).getId()) {
-                System.out.println("Dieser Gegenstand ist im Tresor");
-                return gegenstandsliste.get(objekt);
-            }
-            objekt++;
-        }
-        if (eingabe != gegenstandsliste.get().getId()){
-
+    @Override
+    public String toString() {
+        return "Gegenstände im Tresor:\n"+getGegenstandsliste();
     }
-
 }
