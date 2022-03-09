@@ -28,7 +28,7 @@ public class Tresor {
         }
     }
 
-    public double gesamtwert(ArrayList<Gegenstand> gegenstandsliste) {
+    public double ermittelGesamtwert() {
         double gesamtwert = 0;
         for (Gegenstand j : gegenstandsliste) {
 
@@ -39,6 +39,7 @@ public class Tresor {
 
     @Override
     public String toString() {
-        return "Gegenstände im Tresor:\n"+getGegenstandsliste();
+        return "Gegenstände im Tresor:\n"+getGegenstandsliste()+
+                "\nGesamtwert aller Gegenstände: "+ermittelGesamtwert();
     }
 }

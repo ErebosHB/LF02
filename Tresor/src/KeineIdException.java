@@ -11,6 +11,6 @@ public class KeineIdException extends Exception{
 
     @Override
     public String getMessage() {
-        return "Die ID "+getId()+" befindet sich nicht im Tresor.";
+        return "\nDie ID "+getId()+" befindet sich nicht im Tresor.";
     }
 }
