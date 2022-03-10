@@ -20,7 +20,7 @@ public class Tresor {
     }
 
     public void removeGegenstand(Gegenstand gegenstand) throws KeineIdException{
-        if (gegenstandsliste.contains(gegenstand.getId())) {
+        if (gegenstandsliste.contains(gegenstand)) {
             gegenstandsliste.remove(gegenstand);
         }
         else {

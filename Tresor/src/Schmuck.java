@@ -16,6 +16,6 @@ public class Schmuck extends Gegenstand{
 
     @Override
     public String toString() {
-        return super.toString()+"Bezeichnung\t: "+getBezeichnung()+"\n\n";
+        return super.toString()+"Bezeichnung\t\t: "+getBezeichnung()+"\n\n";
     }
 }

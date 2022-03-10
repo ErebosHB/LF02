@@ -26,7 +26,7 @@ public class Aktie extends Gegenstand{
 
     @Override
     public String toString() {
-        return super.toString()+"Firmenname\t: "+getName()+"\n"+
-                "Nennwert\t: "+getNennwert()+"\n\n";
+        return super.toString()+"Firmenname\t\t: "+getName()+"\n"+
+                "Nennwert\t\t: "+getNennwert()+"\n\n";
     }
 }

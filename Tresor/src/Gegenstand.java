@@ -21,7 +21,7 @@ public abstract class Gegenstand {
 
     @Override
     public String toString() {
-        return "\nID\t\t: "+getId()+"\n"+
+        return "\nID\t\t\t\t: "+getId()+"\n"+
                 "Gegenstandswert\t: "+getWert()+"\n";
     }
 }
