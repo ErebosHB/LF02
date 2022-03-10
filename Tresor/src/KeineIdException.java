@@ -1,5 +1,5 @@
 public class KeineIdException extends Exception{
-    private int id;
+    private final int id;
 
     public KeineIdException(int id){
         this.id = id;
