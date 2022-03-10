@@ -13,7 +13,7 @@ public class Programm {
             tresor.addGegenstand(kette);
             tresor.addGegenstand(aktie1);
             System.out.println(tresor);
-            tresor.removeGegenstand(aktie2);
+            tresor.removeGegenstand(aktie1);
             System.out.println(tresor);
 
         }catch (KeineIdException e){
