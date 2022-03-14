@@ -44,7 +44,7 @@ public class Ware {
     public String toString() {
         return "\nBezeichnung: "+getBezeichnung()+
                 "\nBeschreibung: "+getBeschreibung()+
-                "\nBesonderheten: "+getBesonderheiten()+
+                "\nBesonderheiten: "+getBesonderheiten()+
                 "\nMängel: "+getMaengel();
     }
 }
