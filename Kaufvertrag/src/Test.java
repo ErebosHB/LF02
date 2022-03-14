@@ -26,7 +26,7 @@ public class Test {
 
         String datei = "H://Programmieren/Text/Kaufvertrag.txt";
         PrintWriter writer = new PrintWriter(datei);
-        writer.println("Moin, Moin");
+        writer.println(vertrag);
         writer.close();
     }
 }

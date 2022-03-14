@@ -8,7 +8,7 @@ public class Programm {
         Vertragspartner verkaeufer = new Vertragspartner("Markus","Söder");
         Adresse adresseVerkaeufer = new Adresse("Bayern Straße","3","12020","Nürnberg");
         verkaeufer.setAdresse(adresseVerkaeufer);
-        verkaeufer.setAusweisNr("278980089");
+        verkaeufer.setAusweisNr("278980089 ");
 
 
         Ware ware = new Ware("Eisen",299.99);
