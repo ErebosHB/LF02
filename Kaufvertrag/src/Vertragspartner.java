@@ -1,10 +1,10 @@
-public class Vertragspatner {
+public class Vertragspartner {
     private String vorname;
     private String nachname;
     private String ausweisNr;
     private Adresse adresse;
 
-    public Vertragspatner(String vorname,String nachname){
+    public Vertragspartner(String vorname, String nachname){
         this.vorname = vorname;
         this.nachname = nachname;
     }
@@ -43,6 +43,9 @@ public class Vertragspatner {
 
     @Override
     public String toString() {
-        return "";
+        return "\nVorname: "+getVorname()+
+                "\nNachname: "+getNachname()+
+                "\nAusweißnummer: "+getAusweisNr()+
+                "\nAdresse:\n"+getAdresse();
     }
 }
