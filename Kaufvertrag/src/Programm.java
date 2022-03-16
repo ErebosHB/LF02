@@ -1,5 +1,8 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class Programm {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Vertragspartner kaeufer = new Vertragspartner("Theo","maximus");
         Adresse adresseKaeufer = new Adresse("Marx Straße","30","28279","Bremen");
         kaeufer.setAusweisNr("27777778");
@@ -24,7 +27,10 @@ public class Programm {
 
         System.out.println(kaufvertrag);
 
-
+        String datei = "H://Programmieren/Text/Kaufvertrag2.txt";
+        PrintWriter writer = new PrintWriter(datei);
+        writer.println(kaufvertrag);
+        writer.close();
     }
 
 
