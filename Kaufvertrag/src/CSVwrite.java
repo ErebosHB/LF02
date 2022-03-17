@@ -17,9 +17,19 @@ public class CSVwrite {
 
         String datei = "H://Programmieren/CSV/Kaufvertrag.csv";
         PrintWriter writer = new PrintWriter(datei);
-        writer.println("Vertragspartner;Name;Straße;PLZ;Ort;");
-        writer.println("Käufer;"+kaeufer.getNachname()+", "+ kaeufer.getVorname()+";"+ kaeufer.getAdresse().getStrasse()+" "+ kaeufer.getAdresse().getHausNr()+";"+kaeufer.getAdresse().getPlz()+";"+kaeufer.getAdresse().getOrt());
-        writer.println("Verkäufer;"+verkaeufer.getNachname()+", "+ verkaeufer.getVorname()+";"+ verkaeufer.getAdresse().getStrasse()+" "+ verkaeufer.getAdresse().getHausNr()+";"+verkaeufer.getAdresse().getPlz()+";"+verkaeufer.getAdresse().getOrt());
+        writer.println("Vertragspartner;Name;Ausweissnummer;Strasse;PLZ");
+        writer.print("Kaeufer;");
+        writer.print(kaeufer.getVorname()+" "+kaeufer.getNachname()+";");
+        writer.print(kaeufer.getAusweisNr()+";");
+        writer.print(kaeufer.getAdresse().getStrasse()+" "+ kaeufer.getAdresse().getHausNr()+";");
+        writer.println(kaeufer.getAdresse().getPlz()+" "+kaeufer.getAdresse().getOrt());
+
+
+        writer.print("Verkaeufer;");
+        writer.print(verkaeufer.getVorname()+" "+verkaeufer.getNachname()+";");
+        writer.print(verkaeufer.getAusweisNr()+";");
+        writer.print(verkaeufer.getAdresse().getStrasse()+" "+ verkaeufer.getAdresse().getHausNr()+";");
+        writer.println(verkaeufer.getAdresse().getPlz()+" "+verkaeufer.getAdresse().getOrt());
         writer.close();
     }
 }
