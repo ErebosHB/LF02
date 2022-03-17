@@ -20,11 +20,13 @@ public class CSVread {
             String adresse ="";
             String ort ="";
             for (int i = 0; i < erstes.length-1;i++){
-                adresse += (new StringBuilder()).append(erstes[i]).append(" ").toString();
+                adresse += erstes[i] +" ";
+                adresse = adresse.trim();
             }
             String[] zweites = parts[4].split(" ");
-            for (int j = 0; j < zweites.length-1; j++){
-                ort += (new StringBuilder()).append(zweites[j]).append(" ").toString();
+            for (int j = 1; j < zweites.length;j++){
+                ort = zweites[j]+" ";
+                ort = ort.trim();
             }
 
 
@@ -33,12 +35,12 @@ public class CSVread {
             if (Objects.equals(parts[0], "Verkaeufer")){
                 verkaeufer = new Vertragspartner(name[0],name[1]);
                 verkaeufer.setAusweisNr(parts[2]);
-                verkaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],ort.toString(),zweites[zweites.length-1]));
+                verkaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],zweites[zweites.length-1]));
             }
             if (Objects.equals(parts[0], "Kaeufer")){
                 kaeufer = new Vertragspartner(name[0],name[1]);
                 kaeufer.setAusweisNr(parts[2]);
-                kaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],ort.toString(),zweites[zweites.length-1]));
+                kaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],zweites[zweites.length-1]));
             }
         }
         System.out.println(kaeufer);
