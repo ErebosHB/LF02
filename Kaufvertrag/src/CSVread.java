@@ -40,7 +40,7 @@ public class CSVread {
             if (Objects.equals(parts[0], "Kaeufer")){
                 kaeufer = new Vertragspartner(name[0],name[1]);
                 kaeufer.setAusweisNr(parts[2]);
-                kaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],zweites[zweites.length-1]));
+                kaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],ort.toString()));
             }
         }
         System.out.println(kaeufer);
