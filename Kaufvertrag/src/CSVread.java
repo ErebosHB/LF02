@@ -21,13 +21,11 @@ public class CSVread {
             String ort ="";
             for (int i = 0; i < erstes.length-1;i++){
                 adresse += erstes[i] +" ";
-                adresse = adresse.trim();
-            }
+            } adresse = adresse.trim();
             String[] zweites = parts[4].split(" ");
             for (int j = 1; j < zweites.length;j++){
                 ort = zweites[j]+" ";
-                ort = ort.trim();
-            }
+            }ort = ort.trim();
 
 
 
@@ -35,7 +33,7 @@ public class CSVread {
             if (Objects.equals(parts[0], "Verkaeufer")){
                 verkaeufer = new Vertragspartner(name[0],name[1]);
                 verkaeufer.setAusweisNr(parts[2]);
-                verkaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],zweites[zweites.length-1]));
+                verkaeufer.setAdresse(new Adresse(adresse.toString(),erstes[erstes.length-1],zweites[0],ort.toString()));
             }
             if (Objects.equals(parts[0], "Kaeufer")){
                 kaeufer = new Vertragspartner(name[0],name[1]);
