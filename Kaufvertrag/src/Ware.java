@@ -22,6 +22,14 @@ public class Ware {
         this.bezeichnung = bezeichnung;
     }
 
+    public double getPreis() {
+        return preis;
+    }
+
+    public void setPreis(double preis) {
+        this.preis = preis;
+    }
+
     public String getBeschreibung() {
         return beschreibung;
     }
