@@ -40,13 +40,14 @@ public class KaufvertragPdf {
         header1.setFontColor(ColorConstants.BLUE);
         header1.setBackgroundColor(ColorConstants.GRAY);
         header1.setTextAlignment(TextAlignment.CENTER);
+        header1.setFontSize(18);
 
 
-
-        ListItem item1 = new ListItem("\n\n\nKäufer:\n");
+        ListItem item1 = new ListItem();
+        Paragraph p1 = new Paragraph("\n\n\nKäufer:\n").setUnderline();
+        item1.add(p1);
         item1.setFontColor(ColorConstants.GREEN);
         item1.setFontSize(12);
-        item1.setUnderline();
         List sublist1 = new List().setListSymbol("-");
         sublist1.add("Name: " + kaeufer.getVorname() + " " + kaeufer.getNachname() + "\n");
         sublist1.add("Ausweisnummer: " + kaeufer.getAusweisNr() + "\n");
@@ -54,21 +55,25 @@ public class KaufvertragPdf {
         sublist1.setFontColor(ColorConstants.BLACK);
         sublist1.setFontSize(9);
         item1.add(sublist1);
-        ListItem item2 = new ListItem("\n\nVerkäufer:\n");
+        ListItem item2 = new ListItem();
+        Paragraph p2 = new Paragraph("\n\nVerkäufer:\n").setUnderline();
+        item2.add(p2);
         item2.setFontColor(ColorConstants.RED);
         item2.setFontSize(12);
-        item2.setUnderline();
+
         List sublist2 = new List().setListSymbol("-");
         sublist2.add("Name: " + verkaeufer.getVorname() + " " + verkaeufer.getNachname() + "\n");
         sublist2.add("Ausweisnummer: " + verkaeufer.getAusweisNr() + "\n");
-        sublist2.add("Adresse: "+ verkaeufer.getAdresse().getStrasse() + " " + verkaeufer.getAdresse().getHausNr() + ", " + verkaeufer.getAdresse().getPlz() + " " + verkaeufer.getAdresse().getOrt() + "\n");
+        sublist2.add("Adresse: " + verkaeufer.getAdresse().getStrasse() + " " + verkaeufer.getAdresse().getHausNr() + ", " + verkaeufer.getAdresse().getPlz() + " " + verkaeufer.getAdresse().getOrt() + "\n");
         sublist2.setFontColor(ColorConstants.BLACK);
         sublist2.setFontSize(9);
         item2.add(sublist2);
-        ListItem item3 = new ListItem("\n\nVerkaufte Ware:\n");
+        ListItem item3 = new ListItem();
+        Paragraph p3 = new Paragraph("\n\nVerkaufte Ware:\n").setUnderline();
+        item3.add(p3);
         item3.setFontColor(ColorConstants.BLUE);
         item3.setFontSize(12);
-        item3.setUnderline();
+
         Table table = new Table(2);
         table.setTextAlignment(TextAlignment.LEFT);
         table.addCell("Text");
@@ -78,26 +83,26 @@ public class KaufvertragPdf {
         table.addCell("Beschreibung");
         table.addCell(ware.getBeschreibung());
         table.addCell("Preis");
-        table.addCell(""+ware.getPreis());
+        table.addCell("" + ware.getPreis());
         table.addCell("Besonderheiten");
-        table.addCell(""+ware.getBesonderheiten());
+        table.addCell("" + ware.getBesonderheiten());
         table.addCell("Mängel");
-        table.addCell(""+ware.getMaengel());
+        table.addCell("" + ware.getMaengel());
         table.setFontSize(9);
         table.setFontColor(ColorConstants.BLACK);
         item3.add(table);
-        Paragraph p1 = new Paragraph("\n\nZahlungsmodalitäten:");
-        p1.setUnderline();
-        p1.setFontSize(12);
-        Paragraph p2 = new Paragraph(vertrag.getZahlungsModalitaeten());
-        p2.setFontSize(9);
+        Paragraph p4 = new Paragraph("\n\nZahlungsmodalitäten:");
+        p4.setUnderline();
+        p4.setFontSize(12);
+        Paragraph p5 = new Paragraph(vertrag.getZahlungsModalitaeten());
+        p5.setFontSize(9);
 
         document.add(header1);
         document.add(item1);
         document.add(item2);
         document.add(item3);
-        document.add(p1);
-        document.add(p2);
+        document.add(p4);
+        document.add(p5);
         document.close();
 
 
