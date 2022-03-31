@@ -51,7 +51,7 @@ public class Hexadezimal2Dezimal {
             }
             else {
                 zwisch = Integer.parseInt(parts[i]);
-                if (zwisch > 9){
+                if (zwisch < 10){
                     deziEinz = zahl[i]*zwisch;
                 }
 
