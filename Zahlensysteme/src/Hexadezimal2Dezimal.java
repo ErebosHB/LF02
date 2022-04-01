@@ -9,57 +9,59 @@ public class Hexadezimal2Dezimal {
         String hexa = br.readLine();
         String b1 = new StringBuilder(hexa).reverse().toString();
         String[] parts = b1.split("");
-        int deziEinz = 0;
+        int[] deziEinz = new int[parts.length];
         int dezimal = 0;
         int zwisch;
-        int[] zahl = new int[parts.length+1];
+        int[] zahl = new int[parts.length];
+        zahl[0] = 1;
+        zahl[1] = 16;
+        for (int j = 2;j < zahl.length; j++){
+            zahl[j] = zahl[j-1]*zahl[1];
+        }
 
-        for (int i = 0; i < zahl.length; i++){
+        for (int i = 0; i < zahl.length; i++) {
+
             zahl[0] = 1;
             zahl[1] = 16;
-            if (parts[i].equals("A") || parts[i].equals("B") || parts[i].equals("C") || parts[i].equals("D") || parts[i].equals("E") || parts[i].equals("F")){
-                if (parts[i].equals("A")){
+            if (parts[i].equals("A") || parts[i].equals("B") || parts[i].equals("C") || parts[i].equals("D") || parts[i].equals("E") || parts[i].equals("F")) {
+                if (parts[i].equals("A")) {
                     parts[i] = "10";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
-                }
-                if (parts[i].equals("B")){
+                    deziEinz[i] = zahl[i] * zwisch;
+                } else if (parts[i].equals("B")) {
                     parts[i] = "11";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
-                }
-                if (parts[i].equals("C")){
+                    deziEinz[i] = zahl[i] * zwisch;
+                } else if (parts[i].equals("C")) {
                     parts[i] = "12";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
-                }
-                if (parts[i].equals("D")){
+                    deziEinz[i] = zahl[i] * zwisch;
+                } else if (parts[i].equals("D")) {
                     parts[i] = "13";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
-                }
-                if (parts[i].equals("E")){
+                    deziEinz[i] = zahl[i] * zwisch;
+                } else if (parts[i].equals("E")) {
                     parts[i] = "14";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
-                }
-                if (parts[i].equals("F")){
+                    deziEinz[i] = zahl[i] * zwisch;
+                } else if (parts[i].equals("F")) {
                     parts[i] = "15";
                     zwisch = Integer.parseInt(parts[i]);
-                    deziEinz = zahl[i]*zwisch;
+                    deziEinz[i] = zahl[i] * zwisch;
                 }
-            }
-            else {
+            } else {
                 zwisch = Integer.parseInt(parts[i]);
-                if (zwisch < 10){
-                    deziEinz = zahl[i]*zwisch;
+                if (zwisch < 10) {
+                    deziEinz[i] = zahl[i] * zwisch;
                 }
 
             }
-            System.out.println(deziEinz);
-            dezimal = dezimal + deziEinz;
-            zahl[i+1] = zahl[i]*16;
+            dezimal = dezimal + deziEinz[i];
+            if (i == zahl.length-1){
+                System.out.println("Die Dezimalzahl lautet: " + dezimal);
+            }
         }
-        System.out.println("Die Dezimalzahl lautet: "+dezimal);
+
+
     }
 }
