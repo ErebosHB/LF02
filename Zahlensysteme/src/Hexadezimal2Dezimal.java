@@ -18,36 +18,39 @@ public class Hexadezimal2Dezimal {
         for (int j = 2;j < zahl.length; j++){
             zahl[j] = zahl[j-1]*zahl[1];
         }
-
         for (int i = 0; i < zahl.length; i++) {
-
-            zahl[0] = 1;
-            zahl[1] = 16;
             if (parts[i].equals("A") || parts[i].equals("B") || parts[i].equals("C") || parts[i].equals("D") || parts[i].equals("E") || parts[i].equals("F")) {
-                if (parts[i].equals("A")) {
-                    parts[i] = "10";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
-                } else if (parts[i].equals("B")) {
-                    parts[i] = "11";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
-                } else if (parts[i].equals("C")) {
-                    parts[i] = "12";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
-                } else if (parts[i].equals("D")) {
-                    parts[i] = "13";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
-                } else if (parts[i].equals("E")) {
-                    parts[i] = "14";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
-                } else if (parts[i].equals("F")) {
-                    parts[i] = "15";
-                    zwisch = Integer.parseInt(parts[i]);
-                    deziEinz[i] = zahl[i] * zwisch;
+                switch (parts[i]) {
+                    case "A":
+                        parts[i] = "10";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
+                    case "B":
+                        parts[i] = "11";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
+                    case "C":
+                        parts[i] = "12";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
+                    case "D":
+                        parts[i] = "13";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
+                    case "E":
+                        parts[i] = "14";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
+                    case "F":
+                        parts[i] = "15";
+                        zwisch = Integer.parseInt(parts[i]);
+                        deziEinz[i] = zahl[i] * zwisch;
+                        break;
                 }
             } else {
                 zwisch = Integer.parseInt(parts[i]);
