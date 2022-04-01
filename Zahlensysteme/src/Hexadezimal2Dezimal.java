@@ -15,8 +15,8 @@ public class Hexadezimal2Dezimal {
         int[] zahl = new int[parts.length];
         zahl[0] = 1;
         zahl[1] = 16;
-        for (int j = 2;j < zahl.length; j++){
-            zahl[j] = zahl[j-1]*zahl[1];
+        for (int j = 2; j < zahl.length; j++) {
+            zahl[j] = zahl[j - 1] * zahl[1];
         }
         for (int i = 0; i < zahl.length; i++) {
             if (parts[i].equals("A") || parts[i].equals("B") || parts[i].equals("C") || parts[i].equals("D") || parts[i].equals("E") || parts[i].equals("F")) {
@@ -57,15 +57,11 @@ public class Hexadezimal2Dezimal {
                 if (zwisch < 10) {
                     deziEinz[i] = zahl[i] * zwisch;
                 }
-
             }
-
-            dezimal = dezimal + deziEinz[i];
-            if (i == zahl.length-1){
+            dezimal += deziEinz[i];
+            if (i == zahl.length - 1) {
                 System.out.println("Die Dezimalzahl lautet: " + dezimal);
             }
         }
-
-
     }
 }
