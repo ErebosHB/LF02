@@ -59,6 +59,7 @@ public class Hexadezimal2Dezimal {
                 }
 
             }
+
             dezimal = dezimal + deziEinz[i];
             if (i == zahl.length-1){
                 System.out.println("Die Dezimalzahl lautet: " + dezimal);
