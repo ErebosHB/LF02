@@ -2,13 +2,10 @@ package schritt5;
 
 import Schritt6.SpielAbbruchException;
 import schritt1.Spieler;
-import schritt1.Trainer;
 import schritt2.Torwart;
-import schritt4.Ergebnis;
 import schritt4.Mannschaft;
 import schritt4.Spiel;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Gameplay {
