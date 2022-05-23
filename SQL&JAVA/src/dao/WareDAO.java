@@ -1,5 +1,6 @@
 package dao;
 
+import businessObjects.Vertragspartner;
 import businessObjects.Ware;
 
 import java.sql.*;
@@ -7,6 +8,7 @@ import java.sql.*;
 public class WareDAO {
         private final String CLASSNAME = "org.sqlite.JDBC";
         private final String CONNECTIONSTRING = "jdbc:sqlite:KaufvertragMitDAO/src/data/Kaufvertrag.db";
+        private Connection connection;
 
         public WareDAO() throws ClassNotFoundException {
             Class.forName(CLASSNAME);
@@ -60,5 +62,6 @@ public class WareDAO {
             }
             return ware;
         }
+
     }
 
