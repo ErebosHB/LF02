@@ -1,9 +1,9 @@
 package dao;
 
-import businessObjects.Vertragspartner;
 import businessObjects.Ware;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class WareDAO {
         private final String CLASSNAME = "org.sqlite.JDBC";
@@ -24,11 +24,42 @@ public class WareDAO {
                 String sql = "SELECT * FROM ware where warenNr = ?";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, warenNr);
-
                 ResultSet resultSet = preparedStatement.executeQuery();
-
                 resultSet.next();
+                ware = createObject(resultSet);
 
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return ware;
+        }
+
+    public ArrayList<Ware> read() {
+        ArrayList<Ware> warenListe = null;
+        connection = null;
+        PreparedStatement preparedStatement1 = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "Select * From Ware";
+            preparedStatement1 = connection.prepareStatement(sql);
+            ResultSet resultSet;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return warenListe;
+    }
+
+        private Ware createObject(ResultSet resultSet){
+            Ware ware = null;
+            connection = null;
+            try {
                 String bezeichnung = resultSet.getString("bezeichnung");
                 String beschreibung = resultSet.getString("beschreibung");
                 Double preis = resultSet.getDouble("preis");
@@ -49,11 +80,9 @@ public class WareDAO {
                         ware.getMaengelListe().add(m.trim());
                     }
                 }
-
-
-            } catch (SQLException e) {
+            }catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
+            }finally {
                 try {
                     connection.close();
                 } catch (SQLException e) {
@@ -63,5 +92,6 @@ public class WareDAO {
             return ware;
         }
 
+        public
     }
 
