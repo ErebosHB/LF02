@@ -1,5 +1,9 @@
 package dao;
 
+import businessObjects.Ware;
+
+import java.sql.*;
+
 public class WareDAO {
         private final String CLASSNAME = "org.sqlite.JDBC";
         private final String CONNECTIONSTRING = "jdbc:sqlite:KaufvertragMitDAO/src/data/Kaufvertrag.db";
