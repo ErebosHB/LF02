@@ -2,12 +2,15 @@ package dao;
 
 import businessObjects.Adresse;
 import businessObjects.Vertragspartner;
+
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class VertragspartnerDAO {
     private final String CLASSNAME = "org.sqlite.JDBC";
-    private final String CONNECTIONSTRING = "jdbc:sqlite:KaufvertragMitDAO/src/data/Kaufvertrag.db";
+    private final String CONNECTIONSTRING = "jdbc:sqlite:SQL&JAVA/src/data/Kaufvertrag.db";
+    Connection connection = null;
 
     public VertragspartnerDAO() throws ClassNotFoundException {
         Class.forName(CLASSNAME);
@@ -33,13 +36,13 @@ public class VertragspartnerDAO {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
 
             //SQL Abfrage erstellen
-            String sql = "SELECT * FROM vertragspartner where ausweisNr = ?";
+            String sql = "SELECT * FROM Vertragspartner where ausweisNr = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, ausweisNr);
 
 
             //SQL abfrage ausführen
-           ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             //zeiger auf den ersten datensatz setzen
             resultSet.next();
@@ -58,23 +61,20 @@ public class VertragspartnerDAO {
         }
         return vertragspartner;
     }
+
     public ArrayList read() {
 
         ArrayList<Vertragspartner> vertragspartnerliste = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        //Verbindung zu Datenbank herstellen
 
 
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-            //SQL-Abfrage erstellen
             String sql = "SELECT * FROM Vertragspartner";
             preparedStatement = connection.prepareStatement(sql);
-            // SQL Abfrage auführen
             ResultSet resultSet = preparedStatement.executeQuery();
             vertragspartnerliste = new ArrayList<>();
-            // Zeiger auf den ersten Datensatz setzen
             Vertragspartner vertragspartner = null;
             while (resultSet.next()) {
                 vertragspartner = createObject(resultSet);
@@ -94,7 +94,8 @@ public class VertragspartnerDAO {
         return vertragspartnerliste;
 
     }
-    private Vertragspartner createObject(ResultSet resultSet){
+
+    private Vertragspartner createObject(ResultSet resultSet) {
         Vertragspartner vertragspartner = null;
         try {
             String nr = resultSet.getString("ausweisNr");
@@ -103,13 +104,83 @@ public class VertragspartnerDAO {
             String strasse = resultSet.getString("strasse");
             String hausNr = resultSet.getString("hausNr");
             String plz = resultSet.getString("plz");
-            String ort = resultSet.getString("ort");vertragspartner = new Vertragspartner(vorname, nachname);
+            String ort = resultSet.getString("ort");
+            vertragspartner = new Vertragspartner(vorname, nachname);
             vertragspartner.setAusweisNr(nr);
             Adresse adresse = new Adresse(strasse, hausNr, plz, ort);
             vertragspartner.setAdresse(adresse);
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return vertragspartner;
+    }
+
+    public void delete(String ausweisNr) {
+        connection = null;
+        PreparedStatement preparedStatement2 = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "DELETE FROM Vertragspartner WHERE ausweisNr =?";
+            preparedStatement2 = connection.prepareStatement(sql);
+            preparedStatement2.setString(1, ausweisNr);
+            preparedStatement2.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void InsertInto(Vertragspartner vertragspartner){
+        connection = null;
+        PreparedStatement preparedStatement3 = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "INSERT INTO Vertragspartner(ausweisNr,vorname,nachname,strasse,hausNr,plz,ort)"+
+                    "VALUES(?,?,?,?,?,?,?)";
+            preparedStatement3 = connection.prepareStatement(sql);
+            preparedStatement3.setString(1,vertragspartner.getAusweisNr());
+            preparedStatement3.setString(2,vertragspartner.getVorname());
+            preparedStatement3.setString(3,vertragspartner.getNachname());
+            preparedStatement3.setString(4,vertragspartner.getAdresse().getStrasse());
+            preparedStatement3.setString(5,vertragspartner.getAdresse().getHausNr());
+            preparedStatement3.setString(6,vertragspartner.getAdresse().getPlz());
+            preparedStatement3.setString(7,vertragspartner.getAdresse().getOrt());
+            preparedStatement3.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void update(String ausweisNr){
+        connection = null;
+        PreparedStatement preparedStatement4 = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "UPDATE Vertragspartner SET * = ? WHERE ausweisNr = ?";
+            preparedStatement4 = connection.prepareStatement(sql);
+            preparedStatement4.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
