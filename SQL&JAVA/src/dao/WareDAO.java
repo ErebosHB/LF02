@@ -1,7 +1,6 @@
 package dao;
 
-import businessObjects.Vertragspartner;
-import businessObjects.Ware;
+import Computerspiele.businessObjects.Ware;
 
 import java.sql.*;
 import java.util.ArrayList;

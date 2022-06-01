@@ -1,7 +1,7 @@
 package dao;
 
-import businessObjects.Adresse;
-import businessObjects.Vertragspartner;
+import Computerspiele.businessObjects.Adresse;
+import Computerspiele.businessObjects.Vertragspartner;
 
 
 import java.sql.*;

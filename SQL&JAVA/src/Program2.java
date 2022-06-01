@@ -1,6 +1,5 @@
-import businessObjects.Adresse;
-import businessObjects.Vertragspartner;
-import businessObjects.Ware;
+import Computerspiele.businessObjects.Vertragspartner;
+import Computerspiele.businessObjects.Ware;
 import dao.VertragspartnerDAO;
 import dao.WareDAO;
 

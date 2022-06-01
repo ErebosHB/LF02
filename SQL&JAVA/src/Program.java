@@ -1,7 +1,7 @@
-import businessObjects.Adresse;
-import businessObjects.Kaufvertrag;
-import businessObjects.Vertragspartner;
-import businessObjects.Ware;
+import Computerspiele.businessObjects.Adresse;
+import Computerspiele.businessObjects.Kaufvertrag;
+import Computerspiele.businessObjects.Vertragspartner;
+import Computerspiele.businessObjects.Ware;
 
 public class Program {
 

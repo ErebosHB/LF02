@@ -1,4 +1,4 @@
-package businessObjects;
+package Computerspiele.businessObjects;
 
 import java.util.ArrayList;
 
