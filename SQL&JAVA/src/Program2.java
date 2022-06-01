@@ -1,3 +1,4 @@
+import businessObjects.Adresse;
 import businessObjects.Vertragspartner;
 import businessObjects.Ware;
 import dao.VertragspartnerDAO;
@@ -10,13 +11,21 @@ public class Program2 {
         VertragspartnerDAO vertragspartnerDAO = new VertragspartnerDAO();
         ArrayList<Vertragspartner> vertragspartnerListe = new VertragspartnerDAO().read();
 
-        vertragspartnerDAO.update("0123456789");
+        Vertragspartner vertragspartnerNeu = vertragspartnerListe.get(0);
+        vertragspartnerNeu.setVorname("Yannick");
+
+
+
+        vertragspartnerDAO.update("0123456789",vertragspartnerNeu);
 
         for (Vertragspartner v : vertragspartnerListe) {
             System.out.println(v);
         }
         WareDAO wareDAO = new WareDAO();
         ArrayList<Ware> warenListe = new WareDAO().read();
+        Ware wareNeu = warenListe.get(0);
+        wareNeu.getMaengelListe().add("Kaputt");
+
         for (Ware w : warenListe) {
             System.out.println(w);
         }

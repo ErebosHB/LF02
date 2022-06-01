@@ -137,7 +137,7 @@ public class WareDAO {
         PreparedStatement preparedStatement3 = null;
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-            String sql = "INSERT INTO WAREN(bezeichnung,beschreibung,preis,besonderheiten,maengel)"+
+            String sql = "INSERT INTO WARE(bezeichnung,beschreibung,preis,besonderheiten,maengel)"+
                     "VALUES(?,?,?,?,?)";
             preparedStatement3 = connection.prepareStatement(sql);
             preparedStatement3.setString(1,ware.getBezeichnung());
@@ -151,6 +151,32 @@ public class WareDAO {
             resultSet.next();
 
             ware.setWarenNr(resultSet.getInt("last_insert_rowid()"));
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void update(int warenNr,Ware ware){
+        connection = null;
+        PreparedStatement preparedStatement4 = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "UPDATE Vertragspartner SET bezeichnung = ?, beschreibung = ?, preis = ?, besonderheiten = ?, maengel = ? WHERE warenNr = ?";
+            preparedStatement4 = connection.prepareStatement(sql);
+            preparedStatement4.setString(1,ware.getBezeichnung());
+            preparedStatement4.setString(2,ware.getBeschreibung());
+            preparedStatement4.setDouble(3,ware.getPreis());
+            preparedStatement4.setString(4,mapListToString(ware.getBesonderheitenListe()));
+            preparedStatement4.setString(5,mapListToString(ware.getMaengelListe()));
+            preparedStatement4.setInt(6,warenNr);
+            preparedStatement4.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
