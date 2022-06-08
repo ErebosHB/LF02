@@ -124,7 +124,7 @@ public class ComputerspieleDAO {
             preparedStatement.setString(6,computerspiel.getRating());
             preparedStatement.setDouble(7,computerspiel.getPrice());
             preparedStatement.setString(8,computerspiel.getCondition());
-            preparedStatement.close();
+            preparedStatement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }finally {

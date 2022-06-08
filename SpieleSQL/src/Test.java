@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Test {
     public static void main(String[] args) throws ClassNotFoundException {
         ComputerspieleDAO computerspieleDAO = new ComputerspieleDAO();
+        computerspieleDAO.
 
 
         ArrayList<Computerspiel> computerspielListe = new ComputerspieleDAO().read();

@@ -14,7 +14,6 @@ public class Program2 {
         vertragspartnerNeu.setVorname("Yannick");
 
 
-
         vertragspartnerDAO.update("0123456789",vertragspartnerNeu);
 
         for (Vertragspartner v : vertragspartnerListe) {
