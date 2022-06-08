@@ -29,7 +29,7 @@ public class VertragspartnerDAO {
     public Vertragspartner read(String ausweisNr) {
         Vertragspartner vertragspartner = null;
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         //  Verbindung zu Datenbank herstellen
 
         try {
@@ -66,7 +66,7 @@ public class VertragspartnerDAO {
 
         ArrayList<Vertragspartner> vertragspartnerliste = null;
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
 
 
         try {
@@ -117,7 +117,7 @@ public class VertragspartnerDAO {
 
     public void delete(String ausweisNr) {
         connection = null;
-        PreparedStatement preparedStatement2 = null;
+        PreparedStatement preparedStatement2;
 
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
@@ -139,7 +139,7 @@ public class VertragspartnerDAO {
 
     public void InsertInto(Vertragspartner vertragspartner){
         connection = null;
-        PreparedStatement preparedStatement3 = null;
+        PreparedStatement preparedStatement3;
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
             String sql = "INSERT INTO Vertragspartner(ausweisNr,vorname,nachname,strasse,hausNr,plz,ort)"+
@@ -166,7 +166,7 @@ public class VertragspartnerDAO {
 
     public void update(String ausweisNr,Vertragspartner vertragspartner){
         connection = null;
-        PreparedStatement preparedStatement4 = null;
+        PreparedStatement preparedStatement4;
 
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);

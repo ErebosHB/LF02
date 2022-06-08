@@ -86,5 +86,54 @@ public class ComputerspieleDAO {
         }
         return computerspiel;
     }
+
+    private void delete(int spielNr){
+        connection = null;
+        preparedStatement = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "DELETE FROM Computerspiele WHERE spielNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,spielNr);
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void insertInto(Computerspiel computerspiel){
+        connection = null;
+        preparedStatement = null;
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "INSERT INTO Computerspiele (spielNr,name,genre,releaseDate,fsk,rating,price,condition)"+
+                    "VALUES (?,?,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,computerspiel.getSpielNr());
+            preparedStatement.setString(2,computerspiel.getName());
+            preparedStatement.setString(3,computerspiel.getGenre());
+            preparedStatement.setString(4,computerspiel.getReleaseDate());
+            preparedStatement.setInt(5,computerspiel.getFsk());
+            preparedStatement.setString(6,computerspiel.getRating());
+            preparedStatement.setDouble(7,computerspiel.getPrice());
+            preparedStatement.setString(8,computerspiel.getCondition());
+            preparedStatement.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 

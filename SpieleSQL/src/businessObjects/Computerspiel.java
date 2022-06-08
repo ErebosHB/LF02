@@ -1,6 +1,7 @@
 package businessObjects;
 
 public class Computerspiel {
+    private int spielNr;
     private String name;
     private String genre;
     private String releaseDate;
@@ -71,6 +72,14 @@ public class Computerspiel {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public int getSpielNr() {
+        return spielNr;
+    }
+
+    public void setSpielNr(int spielNr) {
+        this.spielNr = spielNr;
     }
 
     @Override
