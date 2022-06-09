@@ -21,9 +21,6 @@ public class Program2 {
         }
         WareDAO wareDAO = new WareDAO();
         ArrayList<Ware> warenListe = new WareDAO().read();
-        Ware wareNeu = warenListe.get(0);
-        wareNeu.getMaengelListe().add("Kaputt");
-
         for (Ware w : warenListe) {
             System.out.println(w);
         }

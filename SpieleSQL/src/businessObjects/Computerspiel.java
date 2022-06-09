@@ -91,6 +91,6 @@ public class Computerspiel {
                 "FSK: " + fsk +"\n"+
                 "Rating: " + rating + '\n' +
                 "Price: " + price +"\n"+
-                "Condition" + condition + '\n';
+                "Condition: " + condition + '\n';
     }
 }

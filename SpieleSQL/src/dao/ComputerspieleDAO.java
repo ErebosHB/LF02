@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ComputerspieleDAO {
     private final String CLASSNAME = "org.sqlite.JDBC";
-    private final String CONNECTIONSTRING = "jdbc:sqlite:SpieleSQL/src/data/Spiele.db";
+    private final String CONNECTIONSTRING = "jdbc:sqlite:SpieleSQL/src/data/SpieleNeu.db";
     Connection connection = null;
     PreparedStatement preparedStatement = null;
 
@@ -67,7 +67,7 @@ public class ComputerspieleDAO {
         return computerspieleListe;
     }
 
-    private Computerspiel createObject(ResultSet resultSet){
+    private Computerspiel createObject(ResultSet resultSet) throws SQLException {
         Computerspiel computerspiel = null;
         try {
             int nr = resultSet.getInt("spielNr");
@@ -78,16 +78,16 @@ public class ComputerspieleDAO {
             String rating = resultSet.getString("rating");
             double price = resultSet.getDouble("price");
             String condition = resultSet.getString("condition");
-            computerspiel = new Computerspiel(name,genre,releaseDate,fsk,price);
+            computerspiel = new Computerspiel(name, genre, releaseDate, fsk, price);
             computerspiel.setRating(rating);
             computerspiel.setCondition(condition);
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return computerspiel;
     }
 
-    private void delete(int spielNr){
+    public void delete(int spielNr) {
         connection = null;
         preparedStatement = null;
 
@@ -95,11 +95,12 @@ public class ComputerspieleDAO {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
             String sql = "DELETE FROM Computerspiele WHERE spielNr = ?";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,spielNr);
+            preparedStatement.setInt(1, spielNr);
+            preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -108,26 +109,56 @@ public class ComputerspieleDAO {
         }
     }
 
-    private void insertInto(Computerspiel computerspiel){
+    public void InsertInto(Computerspiel computerspiel) {
         connection = null;
         preparedStatement = null;
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-            String sql = "INSERT INTO Computerspiele (spielNr,name,genre,releaseDate,fsk,rating,price,condition)"+
-                    "VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Computerspiele(name,genre,releaseDate,fsk,rating,price,condition)" +
+                    "VALUES (?,?,?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,computerspiel.getSpielNr());
-            preparedStatement.setString(2,computerspiel.getName());
-            preparedStatement.setString(3,computerspiel.getGenre());
-            preparedStatement.setString(4,computerspiel.getReleaseDate());
-            preparedStatement.setInt(5,computerspiel.getFsk());
-            preparedStatement.setString(6,computerspiel.getRating());
-            preparedStatement.setDouble(7,computerspiel.getPrice());
-            preparedStatement.setString(8,computerspiel.getCondition());
+
+            preparedStatement.setString(1, computerspiel.getName());
+            preparedStatement.setString(2, computerspiel.getGenre());
+            preparedStatement.setString(3, computerspiel.getReleaseDate());
+            preparedStatement.setInt(4, computerspiel.getFsk());
+            preparedStatement.setString(5, computerspiel.getRating());
+            preparedStatement.setDouble(6, computerspiel.getPrice());
+            preparedStatement.setString(7, computerspiel.getCondition());
             preparedStatement.executeUpdate();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void update(int spielNr, Computerspiel computerspiel) {
+        connection = null;
+        preparedStatement = null;
+
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+            String sql = "UPDATE Computerspiele SET name = ?,genre = ?,releaseDate = ?,fsk = ?,rating = ?, price = ?,condition = ? WHERE spielNr = ?" +
+                    "VALUES (?,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, computerspiel.getName());
+            preparedStatement.setString(2, computerspiel.getGenre());
+            preparedStatement.setString(3, computerspiel.getReleaseDate());
+            preparedStatement.setInt(4, computerspiel.getFsk());
+            preparedStatement.setString(5, computerspiel.getRating());
+            preparedStatement.setDouble(6, computerspiel.getPrice());
+            preparedStatement.setString(7, computerspiel.getCondition());
+            preparedStatement.setInt(8, spielNr);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -136,4 +167,5 @@ public class ComputerspieleDAO {
         }
     }
 }
+
 
