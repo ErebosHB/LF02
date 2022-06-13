@@ -143,8 +143,7 @@ public class ComputerspieleDAO {
 
         try {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
-            String sql = "UPDATE Computerspiele SET name = ?,genre = ?,releaseDate = ?,fsk = ?,rating = ?, price = ?,condition = ? WHERE spielNr = ?" +
-                    "VALUES (?,?,?,?,?,?,?)";
+            String sql = "UPDATE Computerspiele SET name = ?,genre = ?,releaseDate = ?,fsk = ?,rating = ?, price = ?,condition = ? WHERE spielNr = ?";
             preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, computerspiel.getName());

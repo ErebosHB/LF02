@@ -20,6 +20,9 @@ public class Program2 {
             System.out.println(v);
         }
         WareDAO wareDAO = new WareDAO();
+        Ware ware = new Ware("Holz",100.99);
+        ware.setBeschreibung("nass");
+        wareDAO.InsertInto(ware);
         ArrayList<Ware> warenListe = new WareDAO().read();
         for (Ware w : warenListe) {
             System.out.println(w);

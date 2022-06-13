@@ -145,6 +145,7 @@ public class VertragspartnerDAO {
             String sql = "INSERT INTO Vertragspartner(ausweisNr,vorname,nachname,strasse,hausNr,plz,ort)"+
                     "VALUES(?,?,?,?,?,?,?)";
             preparedStatement3 = connection.prepareStatement(sql);
+
             preparedStatement3.setString(1,vertragspartner.getAusweisNr());
             preparedStatement3.setString(2,vertragspartner.getVorname());
             preparedStatement3.setString(3,vertragspartner.getNachname());
