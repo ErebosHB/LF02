@@ -75,61 +75,38 @@ public class Test {
                             if (spaltenAbfrage.equals("1")) {
                                 System.out.println("Bitte Namen des Spiels eingeben.");
                                 String name = IO.readstring();
-
-                                computerspieleDAO.read(spielNr).setName(name);
-
-                                computerspieleDAO.update(spielNr, computerspieleDAO.read(spielNr));
-
+                                computerspieleDAO.update(name,computerspieleDAO.read(spielNr).getGenre(),computerspieleDAO.read(spielNr).getReleaseDate(),computerspieleDAO.read(spielNr).getFsk(),computerspieleDAO.read(spielNr).getRating(),computerspieleDAO.read(spielNr).getPrice(),computerspieleDAO.read(spielNr).getCondition(),spielNr);
 
                             } else {
                                 if (spaltenAbfrage.equals("2")) {
                                     System.out.println("Bitte Genre des Spiels eingeben.");
                                     String genre = IO.readstring();
-                                    for (Computerspiel c : spieleListe) {
-                                        c.setGenre(genre);
-                                        computerspieleDAO.update(spielNr, c);
-                                    }
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),genre,computerspieleDAO.read(spielNr).getReleaseDate(),computerspieleDAO.read(spielNr).getFsk(),computerspieleDAO.read(spielNr).getRating(),computerspieleDAO.read(spielNr).getPrice(),computerspieleDAO.read(spielNr).getCondition(),spielNr);
+
                                 } else if (spaltenAbfrage.equals("3")) {
                                     System.out.println("Bitte Erscheinungsdatum eingeben.");
                                     String date = IO.readstring();
-                                    for (Computerspiel c : spieleListe) {
-                                        c.setReleaseDate(date);
-                                        computerspieleDAO.update(spielNr, c);
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),computerspieleDAO.read(spielNr).getGenre(),date,computerspieleDAO.read(spielNr).getFsk(),computerspieleDAO.read(spielNr).getRating(),computerspieleDAO.read(spielNr).getPrice(),computerspieleDAO.read(spielNr).getCondition(),spielNr);
 
-                                    }
                                 } else if (spaltenAbfrage.equals("4")) {
                                     System.out.println("Bitte Altersbeschränkung eingeben.");
                                     int fsk = IO.readInteger();
-                                    for (Computerspiel c : spieleListe) {
-                                        c.setFsk(fsk);
-                                        computerspieleDAO.update(spielNr, c);
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),computerspieleDAO.read(spielNr).getGenre(),computerspieleDAO.read(spielNr).getReleaseDate(),fsk,computerspieleDAO.read(spielNr).getRating(),computerspieleDAO.read(spielNr).getPrice(),computerspieleDAO.read(spielNr).getCondition(),spielNr);
 
-                                    }
                                 } else if (spaltenAbfrage.equals("5")) {
                                     System.out.println("Bitte Bewertung eingeben.");
                                     String bewertung = IO.readstring();
-                                    for (Computerspiel c : spieleListe) {
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),computerspieleDAO.read(spielNr).getGenre(),computerspieleDAO.read(spielNr).getReleaseDate(),computerspieleDAO.read(spielNr).getFsk(),bewertung,computerspieleDAO.read(spielNr).getPrice(),computerspieleDAO.read(spielNr).getCondition(),spielNr);
 
-                                        c.setRating(bewertung);
-                                        computerspieleDAO.update(spielNr, c);
-
-                                    }
                                 } else if (spaltenAbfrage.equals("6")) {
                                     System.out.println("Bitte Preis eingeben.");
                                     double preis = IO.readDouble();
-                                    for (Computerspiel c : spieleListe) {
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),computerspieleDAO.read(spielNr).getGenre(),computerspieleDAO.read(spielNr).getReleaseDate(),computerspieleDAO.read(spielNr).getFsk(),computerspieleDAO.read(spielNr).getRating(),preis,computerspieleDAO.read(spielNr).getCondition(),spielNr);
 
-                                        c.setPrice(preis);
-                                        computerspieleDAO.update(spielNr, c);
-
-                                    }
                                 } else if (spaltenAbfrage.equals("7")) {
                                     System.out.println("Bitte Zustand angeben.");
                                     String zustand = IO.readstring();
-                                    for (Computerspiel c : spieleListe) {
-                                        c.setCondition(zustand);
-                                        computerspieleDAO.update(spielNr, c);
-                                    }
+                                    computerspieleDAO.update(computerspieleDAO.read(spielNr).getName(),computerspieleDAO.read(spielNr).getGenre(),computerspieleDAO.read(spielNr).getReleaseDate(),computerspieleDAO.read(spielNr).getFsk(),computerspieleDAO.read(spielNr).getRating(),computerspieleDAO.read(spielNr).getPrice(),zustand,spielNr);
                                 }
 
                             }

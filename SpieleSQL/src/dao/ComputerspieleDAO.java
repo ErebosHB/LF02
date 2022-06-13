@@ -137,7 +137,7 @@ public class ComputerspieleDAO {
         }
     }
 
-    public void update(int spielNr, Computerspiel computerspiel) {
+    public void update(String name, String genre, String releaseDate, int fsk, String rating, double price, String condition, int spielNr) {
         connection = null;
         preparedStatement = null;
 
@@ -146,13 +146,13 @@ public class ComputerspieleDAO {
             String sql = "UPDATE Computerspiele SET name = ?,genre = ?,releaseDate = ?,fsk = ?,rating = ?, price = ?,condition = ? WHERE spielNr = ?";
             preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setString(1, computerspiel.getName());
-            preparedStatement.setString(2, computerspiel.getGenre());
-            preparedStatement.setString(3, computerspiel.getReleaseDate());
-            preparedStatement.setInt(4, computerspiel.getFsk());
-            preparedStatement.setString(5, computerspiel.getRating());
-            preparedStatement.setDouble(6, computerspiel.getPrice());
-            preparedStatement.setString(7, computerspiel.getCondition());
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, genre);
+            preparedStatement.setString(3, releaseDate);
+            preparedStatement.setInt(4, fsk);
+            preparedStatement.setString(5, rating);
+            preparedStatement.setDouble(6, price);
+            preparedStatement.setString(7, condition);
             preparedStatement.setInt(8, spielNr);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
